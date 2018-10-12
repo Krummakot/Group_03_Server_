@@ -1,5 +1,4 @@
 import java.util.Random;
-// HALLO 
 public class Dice {
 
 	// Defining...
