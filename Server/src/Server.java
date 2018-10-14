@@ -1,12 +1,15 @@
-import java.net.*;
+/*import java.net.*;
 import java.io.*;
-import java.util.*;
-
+import java.util.*;*/
+import java.io.*;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Date;
 
 public class Server {
 	static java.util.Date serverCreate;
 	private static int maxClients = 0;
-	
 	public static void main(String[] args) {
 
 		// Creating a thread for the server
@@ -53,7 +56,14 @@ class HandleAClient implements Runnable {
 
 			while (true) {
 			
-
+				//recive answer from the client - what did it roll?
+				int diceRoll = in.readInt();
+				
+				//Add the diceRoll to the clients existing score
+				int clientScore = 0 + diceRoll;
+				
+				//Send the clientScore back to the client
+				out.writeInt(clientScore);
 			}
 		} catch (IOException e) {
 			System.err.println(e);
